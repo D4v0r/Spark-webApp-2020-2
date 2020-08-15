@@ -12,6 +12,9 @@ public class SparkWebApp
     {
         port(getPort());
         get("/hello", (req, res) -> "Hello Heroku");;
+        get("/hello/:name", ((request, response) ->{
+            return "Hello, "+ request.params(":name")+" !!";
+        } ));
     }
 
     static int getPort() {
